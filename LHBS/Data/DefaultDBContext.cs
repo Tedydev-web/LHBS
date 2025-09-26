@@ -1,8 +1,8 @@
-﻿using CrudNetElite.Models;
+﻿using LHBS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CrudNetElite.Data
+namespace LHBS.Data
 {
     public class DefaultDBContext : DbContext
     {

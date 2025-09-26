@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace CrudNetElite.Models
+namespace LHBS.Models
 {
     public class TableLengthViewModel
     {

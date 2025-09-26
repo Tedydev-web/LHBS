@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CrudNetElite.Migrations
+namespace LHBS.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

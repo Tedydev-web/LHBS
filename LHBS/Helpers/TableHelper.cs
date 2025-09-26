@@ -1,12 +1,12 @@
 ﻿using AutoMapper.Execution;
-using CrudNetElite.Models;
+using LHBS.Models;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace CrudNetElite.Helpers
+namespace LHBS.Helpers
 {
     public static class TableHelper
     {

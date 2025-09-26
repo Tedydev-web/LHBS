@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CrudNetElite/CrudNetElite.csproj",
+                "${workspaceFolder}/LHBS/LHBS.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/CrudNetElite/CrudNetElite.csproj",
+                "${workspaceFolder}/LHBS/LHBS.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/CrudNetElite/CrudNetElite.csproj"
+                "${workspaceFolder}/LHBS/LHBS.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

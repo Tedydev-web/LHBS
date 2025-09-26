@@ -27,7 +27,7 @@ type(scope): 🔧 Subject in sentence case (<= 50 chars)
 **Examples (valid):**
 
 ```
-chore(config): 🔄 Rename project to "CrudNetElite"
+chore(config): 🔄 Rename project to "LHBS"
 fix(api): 🐛 Handle null token in AuthMiddleware
 feat(ui): ✨ Add sortable columns to product table
 ```

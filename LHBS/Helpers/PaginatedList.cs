@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CrudNetElite.Helpers
+namespace LHBS.Helpers
 {
     public class PaginatedList<T> : List<T>
     {
         //private set; means that the properties will be read-only for any code outside the class, while still allowing the class's internal methods to update them
-        
+
         /// <summary>
         /// Represents the current page number in a paginated set. 
         /// This value indicates whether the user is on page 1, page 2, page 3, etc.

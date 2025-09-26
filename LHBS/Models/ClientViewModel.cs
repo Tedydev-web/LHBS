@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CrudNetElite.Models
+namespace LHBS.Models
 {
     public class Client
     {

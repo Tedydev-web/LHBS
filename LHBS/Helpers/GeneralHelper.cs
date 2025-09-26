@@ -1,5 +1,5 @@
 ﻿
-namespace CrudNetElite.Helpers
+namespace LHBS.Helpers
 {
     public static class GeneralHelper
     {

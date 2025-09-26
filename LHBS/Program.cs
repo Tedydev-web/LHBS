@@ -1,4 +1,4 @@
-using CrudNetElite.Data;
+using LHBS.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,4 +1,4 @@
-namespace CrudNetElite.Models
+namespace LHBS.Models
 {
     public class ErrorViewModel
     {

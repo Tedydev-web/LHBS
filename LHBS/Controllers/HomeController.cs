@@ -1,12 +1,12 @@
-using CrudNetElite.Data;
-using CrudNetElite.Helpers;
-using CrudNetElite.Models;
+using LHBS.Data;
+using LHBS.Helpers;
+using LHBS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace CrudNetElite.Controllers
+namespace LHBS.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,4 @@
-# CrudNetElite - Crud in Asp.Net Core MVC C# Web App 🚀
+# LHBS - Crud in Asp.Net Core MVC C# Web App 🚀
 
 ## What is Crud?
 

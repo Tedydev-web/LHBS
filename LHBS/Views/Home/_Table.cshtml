@@ -1,10 +1,10 @@
-﻿@model CrudNetElite.Helpers.PaginatedList<CrudNetElite.Models.ClientViewModel>
-@using CrudNetElite.Helpers
+﻿@model LHBS.Helpers.PaginatedList<LHBS.Models.ClientViewModel>
+@using LHBS.Helpers
 @{
     int baseIndex = (Model.PageIndex - 1) * Model.PageSize;// Calculate the base index for the current page
     int from = Model.TotalItems == 0 ? 0 : baseIndex + 1;// Determine the 'from' value, which is 0 if there are no items, otherwise it calculates the starting index
     int to = Math.Min(baseIndex + Model.PageSize, Model.TotalItems); // Determine the 'to' value, which is either the total items (if we're on the last page), or the maximum value for the current page
-    bool showActionColumn = CrudNetElite.Helpers.ClientTableConfig.ShowActionColumn;
+    bool showActionColumn = LHBS.Helpers.ClientTableConfig.ShowActionColumn;
     int totalColumn = Model.ColumnHeaders.Count + (showActionColumn ? 1 : 0);
 }
 <div class="mt-1 table-responsive overflow-auto position-relative">
@@ -24,7 +24,7 @@
                 foreach (var item in Model)
                 {
                     <tr class="lh-sm">
-                        @foreach (var column in CrudNetElite.Helpers.ClientTableConfig.TableColumns)
+                        @foreach (var column in LHBS.Helpers.ClientTableConfig.TableColumns)
                         {
                             <td class="d-block d-lg-table-cell py-2 py-lg-3">@item.GetType().GetProperty(column.Title)?.GetValue(item, null)</td>
                         }

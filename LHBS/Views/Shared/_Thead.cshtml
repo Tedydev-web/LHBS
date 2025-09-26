@@ -1,5 +1,5 @@
 ﻿@{
-    List<CrudNetElite.Helpers.ColumnHeader> columnHeaders = ViewData["ColumnHeaders"] as List<CrudNetElite.Helpers.ColumnHeader> ?? new List<CrudNetElite.Helpers.ColumnHeader>();
+    List<LHBS.Helpers.ColumnHeader> columnHeaders = ViewData["ColumnHeaders"] as List<LHBS.Helpers.ColumnHeader> ?? new List<LHBS.Helpers.ColumnHeader>();
     string sort = ViewData["Sort"] as string ?? string.Empty;
 }
 @foreach (var item in Model.ColumnHeaders)
