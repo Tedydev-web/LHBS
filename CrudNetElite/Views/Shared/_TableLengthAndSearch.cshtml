@@ -1,0 +1,67 @@
+﻿@model TableLengthViewModel
+<div class="row justify-content-between align-items-end g-1 pb-1 w-100">
+    <div class="col-md-8 col-lg-3 order-lg-0">
+        <div class="form-dropdown dropdown pagesize-ddl">
+            <input class="dropdown-input" hidden="" value="10">
+            <button aria-expanded="false" class="btn border border-secondary form-control dropdown-toggle w-100 rounded-xl text-start ws-breakspaces d-flex justify-content-between align-items-center" data-bs-toggle="dropdown" placeholder="Show 10 Records" type="button">Show 10 Records</button>
+            <ul class="dropdown-menu w-100 p-0" style="">
+                <li>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-search"></i></span>
+                        <input aria-label="Search" autofocus="autofocus" class="form-control search" placeholder="Search..." type="text">
+                    </div>
+                </li>
+                @foreach (SelectListItem item in Model.Options)
+                {
+                    <li class="dropdown-list"><a class="dropdown-item cursor-pointer @(item.Selected==true?"active":"")" data-value="@item.Value" onclick="onChangeTableLength(this)">@item.Text</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-10 col-lg-4 col-xl-6 pt-0 order-3 order-lg-1">
+        <input type="text" name="search" class="searchtable form-control border border-secondary text-start" placeholder="@Model.SearchPlaceholder" />
+    </div>
+    <div class="col-md-2 col-lg-2 col-xl-1 pt-0 order-4 order-lg-2">
+        <a class="input-group-text text-center justify-content-center text-decoration-none cursor-pointer" onclick="searchTable(this)"><i class="bi bi-search"></i> &nbsp;Search</a>
+    </div>
+    <div class="col-10 col-lg-2 col-xl-1 pt-0 order-1 order-lg-3">
+        <a class="input-group-text text-center justify-content-center text-decoration-none cursor-pointer" onclick="resetTable(this)"><i class="bi bi-x-circle"></i> &nbsp;Clear</a>
+    </div>
+    <div class="col-2 col-lg-1 col-xl-1 pt-0 order-2 order-lg-4">
+        <div class="d-flex w-100 text-end">
+            <a class="input-group-text text-center justify-content-center me-1 text-decoration-none w-50 cursor-pointer" title="Previous page" onclick="prevPage(this)">&lt;</a>
+            <a class="input-group-text text-center justify-content-center text-decoration-none w-50 cursor-pointer" title="Next page" onclick="nextPage(this)">&gt;</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function prevPage(clickedElement) {
+        let renderDiv = findParentWithAttribute(clickedElement, "data-loadtable");
+        let currentPage = renderDiv.getAttribute("data-table-pg");
+        if (currentPage == "") {
+            currentPage = 1;
+        }
+        let targetPage = parseInt(currentPage) - 1;
+        if (targetPage >= 1) {
+            renderDiv.setAttribute("data-table-pg", targetPage);
+            attachLoadingToTable(renderDiv);
+            refreshTable(renderDiv);
+        }
+    }
+    function nextPage(clickedElement) {
+        let renderDiv = findParentWithAttribute(clickedElement, "data-loadtable");
+        let paging = renderDiv.querySelector("div[data-table-totalpg]");
+        let totalpg = paging.getAttribute("data-table-totalpg");
+        let currentPage = renderDiv.getAttribute("data-table-pg");
+        if (currentPage == "") {
+            currentPage = 1;
+        }
+        let targetPage = parseInt(currentPage) + 1;
+        if (targetPage <= totalpg) {
+            renderDiv.setAttribute("data-table-pg", targetPage);
+            attachLoadingToTable(renderDiv);
+            refreshTable(renderDiv);
+        }
+    }
+</script>

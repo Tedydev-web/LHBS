@@ -1,0 +1,78 @@
+:root {
+    --bs-link-color: #5d30a4;
+    --bs-link-color-rgb: 	93, 48, 164;
+    --bs-link-hover-color: #5d30a4;
+    --bs-link-hover-color-rgb: #5d30a4;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #f0f3f5;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.cursor-notallowed {
+    cursor: not-allowed;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+th {
+    padding: 11px 8px !important;
+}
+
+td {
+    padding: 15px 8px !important;
+}
+
+.page-item a {
+    min-width: 26px !important;
+    min-height: 26px !important;
+    /*font-size: 15px !important;*/
+}
+.list-style-none{
+    list-style:none;
+}
+.btn-primary {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #e0ccff;
+    --bs-btn-border-color: #e0ccff;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #e0ccff;
+    --bs-btn-hover-border-color: #e0ccff;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #e0ccff;
+    --bs-btn-active-border-color: #e0ccff;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #e0ccff;
+    --bs-btn-disabled-border-color: #e0ccff;
+}

@@ -1,0 +1,43 @@
+﻿@if (TempData["NotifySuccess"] != null)
+{
+    <div id="successtoast-container" class="position-fixed top-0 mx-auto p-4 toast-container">
+        <div id="successtoast" class="toast show mx-auto bg-green border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header justify-content-between bg-green border-bottom-0">
+                <div class="text-black">
+                    <i class="bi bi-check-circle pe-1"></i> <strong class="me-auto">Success</strong>
+                </div>
+                <button type="button" class="text-end border-0 bg-transparent fs-18 p-0 hover-opacity" data-bs-dismiss="toast" aria-label="Close">X</button>
+            </div>
+            <div class="toast-body bg-green text-black border-0">
+                @TempData["NotifySuccess"]
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["NotifyFailed"] != null)
+{
+    <div id="failedtoast-container" class="position-fixed top-0 mx-auto p-4 toast-container">
+        <div id="failedtoast" class="toast show mx-auto bg-red border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header justify-content-between bg-red border-bottom-0">
+                <div class="text-dark">
+                    <i class="bi bi-check-circle pe-1"></i> <strong class="me-auto">Oops! Something went wrong.</strong>
+                </div>
+                <button type="button" class="text-end border-0 bg-transparent fs-18 p-0 hover-opacity" data-bs-dismiss="toast" aria-label="Close">X</button>
+            </div>
+            <div class="toast-body bg-red border-0">
+                @Html.Raw(TempData["NotifyFailed"])
+            </div>
+        </div>
+    </div>
+}
+
+<div id="notificationToast-container" class="position-fixed top-0 end-0 pe-4 pt-5 toast-container">
+    <div id="notificationToast" class="toast hide bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex bg-info">
+            <div class="toast-body bg-info border-0">
+            </div>
+            <button type="button" class="me-2 m-auto border-0 bg-transparent fs-18 p-0 hover-opacity" data-bs-dismiss="toast" aria-label="Close">X</button>
+        </div>
+    </div>
+</div>

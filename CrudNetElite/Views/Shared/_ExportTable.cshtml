@@ -1,0 +1,13 @@
+﻿@model ExportTableViewModel
+<div class="dropdown d-inline-block">
+    <button class="btn form-btn btn-secondary hover-boxshadow hover-bg-darkturquoise me-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Export
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item cursor-pointer" onclick="exportToExcel('@Model.TableId')">Excel</a></li>
+        <li><a class="dropdown-item cursor-pointer" onclick="exportToCsv('@Model.TableId')">Csv</a></li>
+        <li><a class="dropdown-item cursor-pointer" onclick="exportToPdf('@Model.TableId', '@Model.IsPortrait')">PDF</a></li>
+        <li><a class="dropdown-item cursor-pointer" onclick="exportToDocx('@Model.TableId',true)">Docx</a></li>
+        <li><a class="dropdown-item cursor-pointer" onclick="exportToTxt('@Model.TableId',true)">Txt</a></li>
+    </ul>
+</div>

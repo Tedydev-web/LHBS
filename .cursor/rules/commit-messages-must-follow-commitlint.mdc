@@ -1,0 +1,94 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+**When generating a Git commit message, follow EXACTLY these constraints:**
+
+- **Format:** `type(scope): Subject`
+- **Allowed `type`:** `feat|fix|docs|style|refactor|test|chore|perf|revert|ci|build|i18n`
+- **Required `scope`:** `api|frontend|backend|docs|tests|config|chore|build|deps|auth|db|ui|perf|security`
+- **Subject:** Sentence case, **≤ 50 chars**, no period at end
+- **Emoji:** Put **one** emoji **after** the colon (e.g. `type(scope): 🔧 Subject`)
+- **Body:** If needed, add a blank line, then bullets.
+- **Footer:** If present, add a blank line before footer (e.g., `BREAKING CHANGE:` or references).
+- **Never** output any other format. If the change cannot fit the rules, ask for a valid `type/scope/subject`.
+
+**Template to use:**
+
+```
+type(scope): 🔧 Subject in sentence case (<= 50 chars)
+
+- Bullet 1 (optional)
+- Bullet 2 (optional)
+```
+
+**Examples (valid):**
+
+```
+chore(config): 🔄 Rename project to "CrudNetElite"
+fix(api): 🐛 Handle null token in AuthMiddleware
+feat(ui): ✨ Add sortable columns to product table
+```
+
+**Examples (reject):**
+
+- Missing scope
+- Subject > 50 chars
+- Wrong type not in the allow-list
+- No emoji after colon
+
+**Configuration Files Commitlint:**
+module.exports = {
+extends: ['@commitlint/config-conventional'],
+rules: {
+'type-enum': [
+2,
+'always',
+[
+'feat', // New feature
+'fix', // Bug fix
+'docs', // Documentation
+'style', // Formatting, missing semi colons, etc; no code change
+'refactor', // Refactoring production code
+'test', // Adding tests, refactoring tests; no production code change
+'chore', // Updating build tasks, package manager configs, etc; no production code change
+'perf', // A code change that improves performance
+'revert', // Reverts a previous commit
+'ci', // Changes to our CI configuration files and scripts
+'build', // Changes that affect the build system or external dependencies
+'i18n' // Internationalization and localization
+]
+],
+'scope-enum': [
+2,
+'always',
+[
+'api',
+'frontend',
+'backend',
+'docs',
+'tests',
+'config',
+'chore',
+'build',
+'deps',
+'auth',
+'db',
+'ui',
+'perf',
+'security'
+]
+],
+'scope-empty': [2, 'never'], // Requires a scope to always be present
+'subject-case': [
+2,
+'always',
+['sentence-case'] // Enforces sentence case for the subject
+],
+'body-leading-blank': [1, 'always'],
+'footer-leading-blank': [1, 'always'],
+'header-max-length': [2, 'always', 50] // Limits header to 50 characters for common readability
+}
+}

@@ -1,0 +1,36 @@
+:root {
+    --bs-link-color: #e0ccff;
+    --bs-link-color-rgb: 224, 204, 255;
+    --bs-link-hover-color: #e0ccff;
+    --bs-link-hover-color-rgb: #e0ccff;
+}
+
+body {
+    background-color: #212121 !important;
+    color: #fff !important;
+}
+
+.bg-white, table,.modal-header,.modal-body, tbody, .table > :not(caption) > * > * {
+    background-color: #2a2a2a !important;
+    color: #fff !important;
+}
+
+.dropdown-menu, .form-control, .input-group-text {
+    background-color: #373737 !important;
+    color: #fff !important;
+}
+.dropdown-item:hover ,.input-group-text:hover,.bg-light{
+    background-color:#59595a !important;
+    color: #fff !important;
+}
+.text-dark,.navbar-brand, input::placeholder,.text-muted,.modal-content .btn {
+    color: #fff !important;
+}
+
+.table-light th {
+    background-color: #59595a !important;
+}
+
+.dropdown-toggle, .dropdown-item {
+    color: #fff !important;
+}

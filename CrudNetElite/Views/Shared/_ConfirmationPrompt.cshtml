@@ -1,0 +1,24 @@
+﻿<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true" style="z-index:1060;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pt-3 d-flex justify-content-between">
+                <span></span>
+                <button type="button" class="btn border-0 bg-transparent fs-24 text-end hover-opacity" data-bs-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <div class="modal-body border-0 pt-0 pb-4">
+                <div class="text-center">
+                    <i class="bi bi-trash text-danger fs-1"></i>
+                    <div class="mt-2 fs-15 mx-4 mx-sm-5">
+                        <h3 class="fs-24 fw600" id="record-title"></h3>
+                        <h4 class="fs-20 fw600 pt-2 text-danger" id="areyousure-heading">Permanently delete this record?</h4>
+                        <p class="fs-15 mx-2 mb-0 pt-1" id="information">Deleting is permanent and can't be undone. Are you sure you to proceed?</p>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center mt-4 mb-3">
+                    <button type="button" class="btn form-btn btn-secondary me-1" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn form-btn btn-danger hover-boxshadow" id="confirmed-deletebtn">Yes, Delete It</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

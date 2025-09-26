@@ -1,0 +1,18 @@
+﻿@using CrudNetElite.Helpers
+@{
+    ViewBag.Title = "Client";
+    ViewBag.TableId = "ClientTableContainer";
+}
+
+<h3 class="text-capitalize mb-sm-0 fw600">@ViewBag.Title</h3>
+<div class="bg-white rounded-4 p-3 p-lg-4 mt-2 shadow-sm">
+    <div class="pb-2">
+        <a class="btn btn-primary" asp-action="edit">+ Add New</a>
+        @await Html.PartialAsync("_ExportTable", new ExportTableViewModel { TableId = ViewBag.TableId, IsPortrait = true })
+    </div>
+    <div id="@ViewBag.TableId" class="position-relative" data-loadtable="@Url.Action("GetPartialViewListing", "Home")"
+         data-filename="@ViewBag.Title" data-table-sort="" data-table-size="" data-table-search="" data-table-pg="">
+        @await Html.PartialAsync("_TableLengthAndSearch", new TableLengthViewModel { Options = TableHelper.DefaultPageSizeOptions, SearchPlaceholder = ClientTableConfig.SearchMessage })
+        @await Html.PartialAsync("_LoadingTable")
+    </div>
+</div>

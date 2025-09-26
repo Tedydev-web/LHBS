@@ -1,0 +1,20 @@
+﻿@{
+    List<CrudNetElite.Helpers.ColumnHeader> columnHeaders = ViewData["ColumnHeaders"] as List<CrudNetElite.Helpers.ColumnHeader> ?? new List<CrudNetElite.Helpers.ColumnHeader>();
+    string sort = ViewData["Sort"] as string ?? string.Empty;
+}
+@foreach (var item in Model.ColumnHeaders)
+{
+    <th class="border-0 @(item.Exportable?"":"notexport")">
+        @if (Model.TotalItems > 0 && item.Sortable)
+        {
+            <a class="d-flex justify-content-between align-items-center cursor-pointer text-dark text-decoration-none" onclick="sortTable('@item.OrderAction',this)">
+                <span>@item.Title</span>
+                <i class="text-muted @(sort.Contains(item.Key.ToString())? sort.Contains("asc")? "bi bi-sort-up-alt": sort.Contains("desc")? "bi bi-sort-down": "": "")"></i>
+            </a>
+        }
+        else
+        {
+            <span>@item.Title</span>
+        }
+    </th>
+}

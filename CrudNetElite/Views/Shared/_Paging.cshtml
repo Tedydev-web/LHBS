@@ -1,0 +1,73 @@
+﻿@{
+    int CurrentPageNumber = ViewData["PageIndex"] != null ? Convert.ToInt32(ViewData["PageIndex"]) : 0;
+    int TotalPages = ViewData["TotalPages"] != null ? Convert.ToInt32(ViewData["TotalPages"]) : 0;
+    int TotalItems = ViewData["TotalItems"] != null ? Convert.ToInt32(ViewData["TotalItems"]) : 0;
+    int showingFrom = ViewData["ShowingFrom"] != null ? Convert.ToInt32(ViewData["ShowingFrom"]) : 0;
+    int showingTo = ViewData["ShowingTo"] != null ? Convert.ToInt32(ViewData["ShowingTo"]) : 0;
+    bool HasPreviousPage = false;
+    bool HasNextPage = false;
+    if (ViewData["HasPreviousPage"] != null)
+    {
+        bool.TryParse(ViewData["HasPreviousPage"]?.ToString(), out HasPreviousPage);
+    }
+    if (ViewData["HasNextPage"] != null)
+    {
+        bool.TryParse(ViewData["HasNextPage"]?.ToString(), out HasNextPage);
+    }
+    int previousPage = CurrentPageNumber - 1;
+    int nextPage = CurrentPageNumber + 1;
+    int maxVisibleButtons = 10;
+    int startPage = Math.Max(1, CurrentPageNumber - (maxVisibleButtons / 2));
+    int endPage = Math.Min(TotalPages, startPage + (maxVisibleButtons - 1));
+    // Adjust startPage if there are less than maxVisibleButtons pages at the end
+    if (endPage - startPage + 1 < maxVisibleButtons)
+    {
+        startPage = Math.Max(1, endPage - maxVisibleButtons + 1);
+    }
+    // Adjust endPage if there are less than maxVisibleButtons pages at the start
+    if (endPage - startPage + 1 < maxVisibleButtons)
+    {
+        endPage = Math.Min(TotalPages, startPage + maxVisibleButtons - 1);
+    }
+}
+<!-- To validate the passed values -->
+@* <div class="row">
+    @CurrentPageNumber CurrentPageNumber
+    @TotalPages TotalPages
+    @TotalItems TotalItems
+    @showingFrom showingFrom
+    @showingTo showingTo
+    @HasPreviousPage HasPreviousPage
+    @HasNextPage HasNextPage
+    @previousPage HasNextPage
+    @nextPage HasNextPage
+</div> *@
+<div class="row justify-content-between align-items-center fs-16 mb-2" data-table-totalpg="@TotalPages">
+    <div class="col-md-6">
+        @showingFrom - @showingTo of @TotalItems Records
+    </div>
+    <div class="col-md-6 text-start text-md-end pt-2 pt-md-0">
+        <nav class="d-inline-block" aria-label="Page navigation">
+            <ul class="pagination m-0">
+                @if (CurrentPageNumber > 1)
+                {
+                    <li class="page-item me-1">
+                        <a onclick="changePage('@previousPage',this)" class="rounded-circle fs-6 border bg-transparent cursor-pointer text-decoration-none d-flex justify-content-center align-items-center">&lt;</a>
+                    </li>
+                }
+                @for (int i = startPage; i <= endPage; i++)
+                {
+                    <li class="page-item me-1 @(i == CurrentPageNumber ? "active" : "")">
+                        <a onclick="changePage('@i',this)" class="rounded-circle fs-6 border @(i == CurrentPageNumber ? "bg-light fw-bold" : "bg-transparent") cursor-pointer text-decoration-none d-flex justify-content-center align-items-center">@i</a>
+                    </li>
+                }
+                @if (CurrentPageNumber < TotalPages)
+                {
+                    <li class="page-item">
+                        <a onclick="changePage('@nextPage',this)" class="rounded-circle fs-6 border bg-transparent cursor-pointer text-decoration-none d-flex justify-content-center align-items-center">&gt;</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
