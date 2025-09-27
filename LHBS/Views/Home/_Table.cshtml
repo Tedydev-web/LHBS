@@ -3,7 +3,7 @@
 @{
     int baseIndex = (Model.PageIndex - 1) * Model.PageSize;// Calculate the base index for the current page
     int from = Model.TotalItems == 0 ? 0 : baseIndex + 1;// Determine the 'from' value, which is 0 if there are no items, otherwise it calculates the starting index
-    int to = Math.Min(baseIndex + Model.PageSize, Model.TotalItems); // Determine the 'to' value, which is either the total items (if we're on the last page), or the maximum value for the current page
+    int to = Math.Min(baseIndex + Model.PageSize, Model.TotalItems); //Determine the 'to' value, which is either the total items (if we're on the last page), or the maximum value for the current page
     bool showActionColumn = LHBS.Helpers.ClientTableConfig.ShowActionColumn;
     int totalColumn = Model.ColumnHeaders.Count + (showActionColumn ? 1 : 0);
 }

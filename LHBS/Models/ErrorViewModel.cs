@@ -1,4 +1,4 @@
-namespace LHBS.Models
+﻿namespace LHBS.Models
 {
     public class ErrorViewModel
     {
